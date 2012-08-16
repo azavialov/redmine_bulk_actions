@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+    <title>Redmine_Bulk_Actions</title>
+    <!-- <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}rba/css/base.css"  />
+
+    <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}rba/css/ie.css"/><![endif]-->
+    <script type="text/javascript" src="{{ STATIC_URL }}rba/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}rba/js/jquery-ui-1.8.21.custom.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            // Accordion
+            $("#accordion").accordion({ header: "h3" });
+
+            // Tabs
+            $('#tabs').tabs();
+
+            // Dialog
+            $('#dialog').dialog({
+                autoOpen: false,
+                width: 600,
+                buttons: {
+                    "Ok": function() {
+                        $(this).dialog("close");
+                    },
+                    "Cancel": function() {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+
+            // Dialog Link
+            $('#dialog_link').click(function(){
+                $('#dialog').dialog('open');
+                return false;
+            });
+
+            // Datepicker
+            $('#datepicker').datepicker({
+                inline: true
+            });
+
+            // Slider
+            $('#slider').slider({
+                range: true,
+                values: [17, 67]
+            });
+
+            // Progressbar
+            $("#progressbar").progressbar({
+                value: 20
+            });
+
+            //hover states on the static widgets
+            $('#dialog_link, ul#icons li').hover(
+                    function() { $(this).addClass('ui-state-hover'); },
+                    function() { $(this).removeClass('ui-state-hover'); }
+            );
+
+        });
+    </script>
+    <style type="text/css">
+
+        #container {
+            width: 500px; /* Ширина слоя */
+            margin: 0 auto; /* Выравнивание по центру */
+         /*   background: #f0f0f0; /* Цвет фона левой колонки */
+        }
+        #header {
+        /*    font-size: 2.2em; /* Размер текста */
+            text-align: center; /* Выравнивание по центру */
+            padding: 5px; /* Отступы вокруг текста */
+        /*    background: #8fa09b; /* Цвет фона шапки */
+        /*    color: #ffe; /* Цвет текста */
+        }
+        #sidebar {
+            margin-top: 10px;
+            width: 110px; /* Ширина слоя */
+            padding: 0 10px; /* Отступы вокруг текста */
+            float: left; /* Обтекание по правому краю */
+        }
+        #content {
+            margin-left: 330px; /* Отступ слева */
+            padding: 10px; /* Поля вокруг текста */
+        /*    background: #fff; /* Цвет фона правой колонки */
+        }
+        #footer {
+        /*    background: #8fa09b; /* Цвет фона подвала */
+            color: #fff; /* Цвет текста */
+            padding: 5px; /* Отступы вокруг текста */
+            clear: left; /* Отменяем действие float */
+        }
+    </style>
+    {% block extrahead %}{% endblock %}
+    {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+
+</head>
+
+<body>
+<h1>Redmine_Bulk_Actions</h1>
+
+
+<form action="/index/" method="post">
+    {% csrf_token %}
+
+    <div id="sidebar">
+        <textarea rows="20" cols="30" name="textarea">textarea</textarea>
+    </div>
+
+    <div id="content">
+        <fieldset>
+            <legend>parameters block</legend>
+            <p>Проект <select></select></p>
+            <p>Версия <select></select></p>
+            <p>Трекер <select></select></p>
+
+        </fieldset>
+    </div>
+    <div id="footer">
+        <input type="submit" value="OK" />
+    </div>
+
+</form>
+</body>
+</html>

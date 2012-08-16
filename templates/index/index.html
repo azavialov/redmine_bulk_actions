@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+    <title>Redmine_Bulk_Actions</title>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}rba/css/zurb/foundation.css"  />
+
+    <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}rba/css/ie.css"/><![endif]-->
+    <script type="text/javascript" src="{{ STATIC_URL }}rba/js/zurb/foundation.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}rba/js/zurb/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}rba/js/zurb/modernizr.foundation.js"></script>
+
+
+    {% block extrahead %}{% endblock %}
+    {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+
+</head>
+
+<body>
+<div class="container">
+    <h1>Redmine_Bulk_Actions</h1>
+    <form class="nice" action="/index/" method="post">
+        {% csrf_token %}
+        <div class="row">
+
+            <div class="six column">
+                <div class="panel">
+                    <textarea rows="20" cols="30" name="textarea">textarea</textarea>
+                </div>
+            </div>
+            <div class="six column">
+                <div class="panel">
+                    <fieldset>
+                        <legend>parameters block</legend>
+                        <p>Проект <select></select></p>
+                        <p>Версия <select></select></p>
+                        <p>Трекер <select></select></p>
+
+                    </fieldset>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <input type="submit" value="Выполнить" />
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>
