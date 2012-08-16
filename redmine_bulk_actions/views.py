@@ -12,11 +12,11 @@ def index(request):
 	projects = Project.find()
 	projectslist = projects.attributes
 	t = loader.get_template('index/index.html')
-    c = RequestContext(request)
-    # c = Context.({
+	c = RequestContext(request)
+	# c = Context.({
     #    'response' : 'index_action',
     #})
-    return HttpResponse (t.render(c))
+	return HttpResponse (t.render(c))
 
 
 
